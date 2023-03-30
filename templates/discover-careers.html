@@ -1,0 +1,47 @@
+{% extends 'includes/layout.html' %}
+
+{% block body %}
+<main class="container text-center">
+  <div class="bg-light p-5 rounded mt-5">
+    <h1>Discover Careers</h1>
+    <img src="{{ url_for('static', filename='images/einstein.png') }}" alt="Image" width="180">
+    <p class="lead">
+        Let our career genius Albert help you discover what you might want to do one day!
+    </p>
+    <body>
+        <form>
+          <label for="inputField">Enter your message:</label>
+          <input type="text" id="inputField" name="inputField">
+          <button type="button" id="myButton">Send</button>
+        </form>
+        <ul id="messages"></ul>
+    
+        <script>
+          var button = document.getElementById("myButton");
+          var messages = document.getElementById("messages");
+          var inputField = document.getElementById("inputField");
+    
+          button.addEventListener("click", function() {
+            var input = inputField.value;
+            inputField.value = "";  // Clear the input field
+            fetch("/chat", {
+              method: "POST",
+              body: JSON.stringify({"input": input}),
+              headers: {
+                "Content-Type": "application/json"
+              }
+            })
+            .then(response => response.json())
+            .then(data => {
+              var responseText = data.output;
+              var listItem = document.createElement("li");
+              var textNode = document.createTextNode(responseText);
+              listItem.appendChild(textNode);
+              messages.appendChild(listItem);
+            });
+          });
+        </script>
+      </body>
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'includes/layout.html' %}
+
+{% block body %}
+<main class="container">
+  <div class="bg-light p-5 rounded mt-5">
+    <h1>Some Page</h1>
+    <p class="lead">
+        Some Page
+    </p>
+
+    <h2>Something about Some Page</h2>
+
+    <form class="" method="post">
+
+      <div class="mb-3">
+        <label class="form-label" for="topic">Interests</label>
+        <input type="text" class="form-control" name="topic" placeholder="Plants, animals, cartoons...">
+      </div>      
+
+      <button type="submit" class="btn btn-primary btn-lg">Discover!</button>
+
+    </form>
+  </div>
+
+  <div class="p-3 rounded">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="text-primary">"{{prompt}}"</h3>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

@@ -1,5 +1,6 @@
 import openai
 import config, os
+import requests
 
 openai.api_key = config.OPENAI_API_KEY
 
@@ -62,3 +63,23 @@ def getChoices(openAIResponse, type="chatCompletionQuery"):
     except Exception as e:
         print(f"Unable to find choices: {e}.")
         return None
+    
+def suggestCareers(type="careerSuggestions"):
+    """
+    Returns a set list of 
+    """
+    try:
+        if type == "careerSuggestions":
+            text = "You should be a doctor!"
+        else:
+            text = "You should be a teacher!"
+        return text
+    except Exception as e:
+        print(f"Unable to find career: {e}.")
+        return None
+
+def get_image():
+    url = 'https://e7.pngegg.com/pngimages/644/838/png-clipart-physician-patient-cartoon-doctor-doctor-cartoon-character-child-thumbnail.png'  # replace with the URL of the image you want to display
+    response = requests.get(url)
+    image_binary = io.BytesIO(response.content)
+    return image_binary

@@ -1,10 +1,19 @@
 {% extends 'includes/layout.html' %}
 
 {% block body %}
+<style>
+  img {
+      display: block;
+      margin: auto;
+  }
+  </style>
+  
+
+
 <main class="container">
   <div class="bg-light p-5 rounded mt-5">
-    <h1>Some Page</h1>
-    <p class="lead">Some Page Stuff
+    <h1>Meet the experts!</h1>
+    <p class="lead">Let's explore the exciting options that might lie in your future!
     </p>
   </div>
 
@@ -17,12 +26,27 @@
       <div class="col-lg-3 mb-3">
         <div class="card">
           <div class="card-header">
-            Some Page
+            Careers
+          </div>
+          <div class="card-body text-center">
+            <img src="{{ url_for('static', filename='images/einstein.png') }}" alt="Image" width="150">
+            <h5 class="card-title text-center">Help me find a career!</h5>
+            <p class="card-text text-center">An exciting way to explore your career possibilities</p>
+            <a href="/discover-careers" class="btn btn-primary">Let's do it!</a>
+          </div>
+        </div>
+      </div>
+      <!-- One Item Ends here -->
+      <!-- One Item Starts Here -->
+      <div class="col-lg-3 mb-3">
+        <div class="card">
+          <div class="card-header">
+            Careers
           </div>
           <div class="card-body">
-            <h5 class="card-title">Some Page Stuff</h5>
-            <p class="card-text">Here's a description about some page</p>
-            <a href="/some-page" class="btn btn-primary">Get Started</a>
+            <h5 class="card-title">A day in the life of...</h5>
+            <p class="card-text">Ask a professional what life is like in their job</p>
+            <a href="/some-page" class="btn btn-primary">Let's do it!</a>
           </div>
         </div>
       </div>
