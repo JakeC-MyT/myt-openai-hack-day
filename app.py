@@ -29,7 +29,7 @@ def discoverCareers():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='8888', debug=True)
 
-@app.route("/chat", methods=["POST"])
+@app.route('/chat', methods=['POST'])
 def chat():
     input_text = request.json.get("input", "")
     response = openai.Completion.create(
